@@ -1,0 +1,39 @@
+.container {
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 275px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-left: 10px;
+  gap: 8px;
+}
+
+.btn {
+  height: 35px;
+  border: 1px solid black;
+  margin-right: 10px;
+  font-weight: bold;
+  background-color: rgb(255, 83, 83);
+}
+
+p {
+  margin: 5px;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
