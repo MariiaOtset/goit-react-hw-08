@@ -48,13 +48,15 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContact.rejected, setRejected)
 
+      .addCase(updateContact.pending, setPending)
       .addCase(updateContact.fulfilled, (state, { payload }) => {
         state.loading = false;
         const indexToUpdate = state.items.findIndex(
           ({ id }) => id === payload.id
         );
         state.items[indexToUpdate] = payload;
-      });
+      })
+      .addCase(updateContact.rejected, setRejected);
   },
 });
 
