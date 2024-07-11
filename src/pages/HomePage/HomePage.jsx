@@ -1,38 +1,42 @@
 import { NavLink } from "react-router-dom";
-// import css from "./HomePage.module.css";
-import "./HomePage.module.css";
+import css from "./HomePage.module.css";
+
 const HomePage = () => {
   return (
-    <div className="home-container">
-      <header className="home-header">
-        <h1>Книга контактов</h1>
-        <p>Управляйте своими контактами легко и эффективно</p>
+    <div className={css["home-container"]}>
+      <header className={css["home-header"]}>
+        <h1>Contact book</h1>
+        <p>Manage your contacts easily and efficiently</p>
       </header>
-      <main className="home-main">
-        <section className="features">
-          <div className="feature">
-            <i className="fas fa-user-plus"></i>
-            <h2>Добавляйте контакты</h2>
-            <p>Легко добавляйте новые контакты в вашу книгу</p>
+      <section className={css.features}>
+        <div className={css.feature}>
+          <i className="fas fa-user-plus"></i>
+          <div className={css.info}>
+            <h2>Add contacts</h2>
+            <p>Easily add new contacts to your book</p>
           </div>
-          <div className="feature">
-            <i className="fas fa-search"></i>
-            <h2>Быстрый поиск</h2>
-            <p>Находите нужные контакты в считанные секунды</p>
+        </div>
+        <div className={css.feature}>
+          <i className="fas fa-search"></i>
+          <div className={css.info}>
+            <h2>Quick search</h2>
+            <p>Find the contacts you need in seconds</p>
           </div>
-          <div className="feature">
-            <i className="fas fa-sync-alt"></i>
-            <h2>Синхронизация</h2>
-            <p>Ваши контакты всегда с вами на всех устройствах</p>
+        </div>
+        <div className={css.feature}>
+          <i className="fas fa-sync-alt"></i>
+          <div className={css.info}>
+            <h2>Synchronization</h2>
+            <p>Your contacts are always with you on all devices</p>
           </div>
-        </section>
-        <section className="cta">
-          <h2>Начните пользоваться прямо сейчас!</h2>
-          <NavLink to="/contacts" className="cta-button">
-            Перейти к контактам
-          </NavLink>
-        </section>
-      </main>
+        </div>
+      </section>
+      <section className={css.cta}>
+        <h2>Start using it right now!</h2>
+        <NavLink to="/contacts" className={css["cta-button"]}>
+          Go to contacts
+        </NavLink>
+      </section>
     </div>
   );
 };

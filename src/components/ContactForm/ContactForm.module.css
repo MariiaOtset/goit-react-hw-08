@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 10px;
   background-color: #f9f9f9;
+  width: 350px;
 }
 
 label {

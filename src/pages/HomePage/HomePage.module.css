@@ -1,28 +1,29 @@
 body {
-  margin: 0;
-  padding: 0;
-  /* background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  /* background-image: url("https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"); */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; */
-  min-height: 100vh;
+  background-attachment: fixed;
 }
 
 .home-container {
-  max-width: 1200px;
+  width: 1400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
 .home-header {
   text-align: center;
-  margin-bottom: 50px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: rgb(214 176 151 / 80%);
   border-radius: 10px;
 }
 
@@ -40,14 +41,15 @@ body {
 .features {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 50px;
 }
 
 .feature {
+  display: flex;
   text-align: center;
+  align-items: center;
   width: 30%;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -59,36 +61,39 @@ body {
 .feature i {
   font-size: 3em;
   color: #007bff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  padding: 0 10px;
 }
 
 .feature h2 {
   font-size: 1.5em;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .feature p {
   color: #666;
+  margin: 8px;
 }
 
 .cta {
   text-align: center;
-  background-color: rgba(248, 249, 250, 0.9);
-  padding: 50px;
+  background-color: rgba(255, 231, 231, 0.9);
+  border: 2px solid rgb(220, 187, 187);
+  padding: 15px;
   border-radius: 10px;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 .cta h2 {
   font-size: 2em;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 15px;
   background-color: #007bff;
   color: white;
   text-decoration: none;
@@ -104,7 +109,7 @@ body {
 
 .home-footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
   color: #666;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
@@ -118,6 +123,11 @@ body {
 
   .feature {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
 }

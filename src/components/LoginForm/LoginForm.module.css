@@ -1,0 +1,13 @@
+.btn {
+  padding: 7px 10px;
+  background-color: #fed74a;
+}
+
+.form {
+  border: 2px solid rgb(47, 255, 245);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

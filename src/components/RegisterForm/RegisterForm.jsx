@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
 import FormLabel from "../FormLabel/FormLabel";
+import css from "./RegisterForm.module.css";
 
 const INITIAL_VALUES = {
   name: "",
@@ -21,7 +22,7 @@ const showError = (error) =>
   toast.error(
     error === 400
       ? "This email has already been taken"
-      : "Something went wrong :("
+      : "Something went wrong "
   );
 
 const RegisterForm = () => {
@@ -38,11 +39,13 @@ const RegisterForm = () => {
         initialValues={INITIAL_VALUES}
         validationSchema={VALIDATION_SCHEMA}
       >
-        <Form>
+        <Form className={css.form}>
           <FormLabel title="username" />
           <FormLabel title="email" />
           <FormLabel title="password" />
-          <button type="submit">Register</button>
+          <button className={css.btn} type="submit">
+            Register
+          </button>
         </Form>
       </Formik>
     </>

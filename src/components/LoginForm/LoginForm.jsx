@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { logIn } from "../../redux/auth/operations";
 import FormLabel from "../FormLabel/FormLabel";
+import css from "./LoginForm.module.css";
 
 const INITIAL_VALUES = {
   email: "",
@@ -11,7 +12,9 @@ const INITIAL_VALUES = {
 };
 
 const VALIDATION_SCHEMA = Yup.object().shape({
-  email: Yup.string().email("Please enter valid email address").required("Required"),
+  email: Yup.string()
+    .email("Please enter valid email address")
+    .required("Required"),
   password: Yup.string().required("Required"),
 });
 
@@ -21,8 +24,8 @@ const showErrorMessage = (error) =>
   );
 
 const LoginForm = () => {
-    const dispatch = useDispatch();
-    
+  const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
     dispatch(logIn(values)).unwrap().catch(showErrorMessage);
   };
@@ -33,10 +36,12 @@ const LoginForm = () => {
         initialValues={INITIAL_VALUES}
         validationSchema={VALIDATION_SCHEMA}
       >
-        <Form>
+        <Form className={css.form}>
           <FormLabel title="email" />
           <FormLabel title="password" />
-          <button type="submit">Log in</button>
+          <button className={css.btn} type="submit">
+            Log in
+          </button>
         </Form>
       </Formik>
     </>
