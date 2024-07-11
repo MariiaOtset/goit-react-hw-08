@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-weight: 700;
+}
+
+.welcomeText {
+  display: block;
+}
+
+.button {
+  padding: 5px;
+}
