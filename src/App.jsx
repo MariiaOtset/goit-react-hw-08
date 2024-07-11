@@ -1,24 +1,19 @@
-// import ContactForm from "./components/ContactForm/ContactForm";
-// import SearchBox from "./components/SearchBox/SearchBox";
-// import ContactList from "./components/ContactList/ContactList";
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { fetchContacts } from "../src/redux/contacts/operations";
-import { useEffect, lazy } from "react";
-import { refreshUser } from "./redux/auth/operations";
-import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
-import ToastNotification from "./components/ToastNotification/ToastNotification";
-import Loading from "./components/Loading/Loading";
+import { Suspense, lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { refreshUser } from "../src/redux/auth/operations";
+import { selectIsRefreshing } from "../src/redux/auth/selectors";
+import Layout from "./components/Layout/Layout";
+import Loader from "./components/Loader/Loader";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import { Toaster } from "react-hot-toast";
 
-const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
-const RegisterPage = lazy(() => import("../../pages/RegisterPage"));
-const LoginPage = lazy(() => import("../../pages/LoginPage"));
-const ContactsPage = lazy(() => import("../../pages/ContactsPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -60,31 +55,12 @@ const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
       <Toaster position="top-center" reverseOrder={false} />
     </Layout>
   );
 };
-
-// function App() {
-//   // const dispatch = useDispatch();
-
-//   // useEffect(() => {
-//   //   dispatch(fetchContacts());
-//   // }, [dispatch]);
-
-//   return (
-//     <>
-//       <Routes>
-//
-//       </Routes>
-//       {/* <h1>Phonebook</h1>
-//       <ContactForm />
-//       <SearchBox />
-//       <ContactList /> */}
-//     </>
-//   );
-// }
 
 export default App;
