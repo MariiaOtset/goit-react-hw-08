@@ -6,6 +6,8 @@ import {
   updateContact,
 } from "./operations";
 
+import { logOut } from "../auth/operations";
+
 const initialState = {
   items: [],
   loading: false,
@@ -56,7 +58,12 @@ const contactsSlice = createSlice({
         );
         state.items[indexToUpdate] = payload;
       })
-      .addCase(updateContact.rejected, setRejected);
+      .addCase(updateContact.rejected, setRejected)
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = false;
+        state.loading = false;
+      });
   },
 });
 
